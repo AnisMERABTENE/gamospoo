@@ -1,0 +1,107 @@
+/* Styles généraux */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #f9f9f9, #eaeaea);
+    color: #333;
+}
+
+.gamos-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header */
+.gamos-header {
+    background-color: #ff6600;
+    padding: 20px;
+    text-align: center;
+    color: #fff;
+}
+
+.gamos-title {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+/* Form Container */
+.gamos-form-container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+    text-align: center;
+}
+
+/* Form fields */
+.gamos-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.gamos-field {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 400px;
+}
+
+.gamos-label {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.gamos-input {
+    font-size: 1rem;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.gamos-input:focus {
+    border-color: #ff6600;
+    outline: none;
+    box-shadow: 0 0 4px rgba(255, 102, 0, 0.3);
+}
+
+/* Button */
+.gamos-button {
+    font-size: 1.2rem;
+    color: #fff;
+    background-color: #ff6600;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.gamos-button:hover {
+    background-color: #e65500;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .gamos-form-container {
+        padding: 20px;
+    }
+
+    .gamos-field {
+        max-width: 100%;
+    }
+
+    .gamos-button {
+        font-size: 1rem;
+        padding: 10px;
+    }
+}

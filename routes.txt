@@ -1,0 +1,7 @@
+login               //  afficher le formulaire de login
+
+home                //  afficher le formulaire de home
+
+cars                //  afficher le form avec les voiture selon les dispo
+cars/modification/id  // afficher le form de modification de car selon son id
+cars/confirmation   //afficher le msg de confirmation
