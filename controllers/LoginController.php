@@ -2,21 +2,16 @@
 
 class LoginController{
     public $userRepository;
-    public $voitureRepository;
 
     public function __construct($dbh)
     {
         $this->userRepository = new UserRepository($dbh);
-        $this->voitureRepository = new VoitureRepository($dbh);
     }
 
-    public function home()
-    {        
-
-        $voitures = $this->voitureRepository->showRandomVoitures();
-          
-        require "views\login.php";
+    public function home(){
         
+        require_once "views\login.php";
+       
         if ($_SERVER['REQUEST_METHOD'] === "POST" && isset($_POST["email"]) && isset($_POST["password"])) {
             $email = filter_var(trim($_POST["email"]), FILTER_SANITIZE_EMAIL);
             $password = trim($_POST["password"]);

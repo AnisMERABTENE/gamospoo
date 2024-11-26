@@ -9,8 +9,9 @@ class MesreservationsController{
     }
 
     public function home(){
-        require "views\mesReservation.html.php"; 
-           
+        
+     
+       
         $reservations=[];
 
         if (isset($_SESSION["userId"])) {            
@@ -19,7 +20,7 @@ class MesreservationsController{
             $reservations=$this->mesReservationsRepository->recupReservationBdd($userId);  
         }
 
-           
+        require_once "views\mesReservation.html.php";    
        
     }
 }
