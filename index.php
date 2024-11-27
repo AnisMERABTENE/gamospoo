@@ -19,6 +19,7 @@ $elements = $router->getController($_SERVER['REQUEST_URI']);
 // Récupérer le contrôleur et l'action
 $controller = $elements['controller'];
 $action = $elements['action'];
+$page=$elements['page'];  // init de la variable page pour le css
 
 // Vérifier que le contrôleur existe
 if (!class_exists($controller)) {

@@ -26,7 +26,7 @@ if(!empty ($_SESSION["message"])){
     echo $_SESSION['prenom'];} ?></h1>
 
 
-<h2>Nos Voitures de Luxe</h2>
+<h2>Découvre nos Voitures de Luxe</h2>
 <div class="login-voitures-container">
     <?php if (isset($voitures) && !empty($voitures)): ?>
         <?php foreach (array_slice($voitures, 0, 3) as $voiture): ?>

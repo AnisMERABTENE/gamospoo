@@ -4,7 +4,7 @@
 
 <footer>
 
-<p>created by AHA2024</p>
+<p>Created by AHA2024</p>
 
 </footer>
 
