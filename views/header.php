@@ -33,7 +33,7 @@
             <input type="password" name="password" id="password" placeholder="Votre mot de passe" required>
             <button type="submit">Se connecter</button>
         </div>
-    </form>
+            </form>
         <?php endif; ?>
     </header>
 
