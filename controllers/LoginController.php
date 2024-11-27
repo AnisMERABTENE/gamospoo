@@ -57,32 +57,45 @@ class LoginController{
                   $_SESSION["role"] = $user["role"];  
                   $_SESSION['prenom']=$user['prenom'];   
                   $_SESSION['userId']=$user['id_utilisateur'];   
-                  
-         
-                  header("location:/login");
-                  exit();
 
-                } else {
-                  $errors[]=" mot de passe incorrect";
-                  $_SESSION['error']=$errors;
-                  exit();
 
-                }
+                  if ($user['role' ] === 'admin'){
+                      header("location:/admin");
+                      exit();
+                  }else{         
+                    header("location:/login");
+                    exit();
+                  }
 
-            }else{
+            } else {
+              $errors[]=" mot de passe incorrect";
+              $_SESSION['error']=$errors;
+              exit();
 
-              $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-              if($this->userRepository->addUserBdd($email,$hashedPassword)){
-               echo " profil crée avec succées, maintenant connectez vous.";
-                
-              }else{                            
-                $errors[]=" erreur d'inscription";
-                $_SESSION['error']=$errors;
-                header("location:/login");
-                exit();
-              }
             }
+
+        }else{
+
+          $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
+          if($this->userRepository->addUserBdd($email,$hashedPassword)){
+            $newUser = $this->userRepository->recupUserBdd($email);
+            $_SESSION["email"] =$newUser["email"];
+            $_SESSION["role"] = $newUser["role"];  
+            $_SESSION['prenom']=$newUser['prenom'];   
+            $_SESSION['userId']=$newUser['id_utilisateur']; 
+
+            header("location:/login");
+            exit();
+                        
+          }else{                            
+            $errors[]=" erreur d'inscription";
+            $_SESSION['error']=$errors;
+            header("location:/login");
+            exit();
+          }
         }
+      }
 
         
     }
