@@ -46,11 +46,11 @@ public function recupReservationBdd(int $userId):array
 
         $stmt->execute();
 
-        // Vérification si la mise à jour a été effectuée
+       
         if ($stmt->rowCount() > 0) {
-            return true;  // Mise à jour réussie
+            return true; 
         } else {
-            // Si aucune ligne n'a été mise à jour
+           
             return false;
         }
     
