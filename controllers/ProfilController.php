@@ -12,7 +12,7 @@ class ProfilController{
 
     public function home(){
         
-        require "views\header.php";
+        
         require_once "views\profil.html.php";
 
         if ($_SERVER['REQUEST_METHOD'] === "POST" && isset($_POST["updateProfile"]) && isset($_SESSION["userId"])) {
@@ -80,7 +80,7 @@ class ProfilController{
           }
         }
 
-        require "views/footer.php";
+        
     }
 
 }
