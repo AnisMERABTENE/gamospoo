@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <title>Gamos - Location de voitures haut de gamme</title>
+    <link rel="stylesheet" href="css/<?php echo $page; ?>.css">
+    
+    
+    <title><?php echo $title ?></title>
 </head>
 <body>
     <header class="header">
@@ -39,6 +42,4 @@
 
     <main>
  
-
-
-
+   

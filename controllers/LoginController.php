@@ -58,33 +58,41 @@ class LoginController{
                   $_SESSION['prenom']=$user['prenom'];   
                   $_SESSION['userId']=$user['id_utilisateur'];   
                   
-         
-                  header("location:/login");
+                  if($user["role"] === "admin"){
+                  header("location:/admin");
                   exit();
 
                 } else {
-                  $errors[]=" mot de passe incorrect";
-                  $_SESSION['error']=$errors;
+                  header("location:login");
                   exit();
-
                 }
 
             }else{
 
               $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
               if($this->userRepository->addUserBdd($email,$hashedPassword)){
-               echo " profil crée avec succées, maintenant connectez vous.";
-                
-              }else{                            
+                $newUser=$this->userRepository->recupUserBdd($email);
+                  $_SESSION["email"] = $newUser["email"];
+                  $_SESSION["role"] = "utilisateur";  
+                  $_SESSION['prenom']=$newUser['prenom'];   
+                  $_SESSION['userId']=$newUser['id_utilisateur'];   
+                  
+                  header("location:/login");
+                  exit();
+
+              } else {
                 $errors[]=" erreur d'inscription";
                 $_SESSION['error']=$errors;
                 header("location:/login");
                 exit();
               }
             }
+        }else{
+          $errors[]=" mot de passe incorrect";
+          $_SESSION['error']=$errors;
+          exit();
         }
 
-        
     }
-
-  }
+    }
+}

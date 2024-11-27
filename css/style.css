@@ -2,23 +2,6 @@
     margin: 0;
 }
 
-
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh; 
-    background-color: #f4f4f4; 
-    text-align: center;
-    
-  
-}
-
-
 .header {
     display: flex;
     justify-content: space-between;
@@ -44,16 +27,23 @@ body {
     height: 80px;
     margin-right: 10px;
 }
+.header-text{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+}
 
 .header-logo .header-text h1 {
     margin: 0;
     font-size: 24px;
     font-weight: bold;
+    color: white;
 }
 
 .header-logo .header-text p {
     margin: 0;
-    font-size: 15px;
+    font-size: 20px;
     font-style: italic;
 }
 
@@ -106,146 +96,6 @@ body {
     background-color: #ff9900;
 }
 
-
-
-
-h1 {
-    font-size: 2.5em;
-    color: #333;
-    margin-bottom: 20px;
-}
-
-h2 {
-    font-size: 2em;
-    color: #555;
-    margin-bottom: 30px;
-}
-
-.login-voitures-container {
-    display: flex; 
-    justify-content: center; 
-    gap: 20px; 
-    max-width: 900px; 
-    width: 100%;
-    margin-top: 20px; 
-}
-
-.login-voiture-card {
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    text-align: center;
-    padding: 20px;
-    width: 250px; 
-    height: 350px; 
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; 
-}
-
-.login-voiture-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-.login-voiture-image {
-    max-width: 100%;
-    max-height: 50%; 
-    object-fit: cover; 
-    margin-bottom: 20px;
-}
-
-.login-voiture-price {
-    font-size: 1.5em;
-    font-weight: bold;
-    color: #4CAF50;
-    margin-bottom: 10px;
-}
-
-.login-voiture-slogan {
-    font-size: 1.1em;
-    color: #777;
-    margin-top: auto; 
-}
-
-.login-voitures-container p {
-    font-size: 1.2em;
-    color: #888;
-}
-
-
-
-.main-container {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 20px;
-}
-
-.content-container {
-    max-width: 900px;
-    width: 100%;
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-}
-
-h2, h3, h1 {
-    color: #333;
-    font-size: 1.8em;
-    text-align: center;
-}
-
-a {
-    display: block;
-    text-align: center;
-    color: #007BFF;
-    text-decoration: none;
-    margin-bottom: 20px;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-button {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    font-size: 1.1em;
-    margin: 10px 0;
-    cursor: pointer;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-}
-
-button:hover {
-    background-color: #45a049;
-}
-
-button[style="background-color: red;"]:hover {
-    background-color: #e44d44;
-}
-
-.form-group {
-    margin-bottom: 15px;
-}
-
-input[type="text"], input[type="email"] {
-    width: 100%;
-    padding: 10px;
-    font-size: 1em;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
 
 
 footer {
