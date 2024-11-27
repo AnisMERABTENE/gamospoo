@@ -21,16 +21,31 @@
             <?php endif; ?>
 
             <h3>Réservations à venir :</h3>
-            <?php if (!empty($reservations['A venir'])): ?>
-                <ul>
-                    <?php foreach ($reservations['A venir'] as $reservation): ?>
-                        <li><strong>Réservation du <?= date("d/m/Y", strtotime($reservation['date_debut'])) ?> au <?= date("d/m/Y", strtotime($reservation['date_fin'])) ?> : </strong>
-                        <?php echo $reservation['prix_total']."€"; ?></li>
-                    <?php endforeach; ?>
-                </ul>
-            <?php else: ?>
-                <p>Aucune réservation à venir.</p>
-            <?php endif; ?>
+<?php if (!empty($reservations['A venir'])): ?>
+    <ul>
+        <?php foreach ($reservations['A venir'] as $reservation): ?>
+            <li>
+                <strong>Réservation du <?= date("d/m/Y", strtotime($reservation['date_debut'])) ?> au <?= date("d/m/Y", strtotime($reservation['date_fin'])) ?> : </strong>
+                <?= $reservation['prix_total']."€" ?>
+            
+                <form  action="mesreservations" method="POST">
+                    <input type="hidden" name="id_reservation" value="<?= $reservation['id_reservation'] ?>">
+
+                    <label for="date_debut">Date de début</label>
+                    <input type="date" name="date_debut" value="<?= date('Y-m-d', strtotime($reservation['date_debut'])) ?>" required>
+
+                    <label for="date_fin">Date de fin</label>
+                    <input type="date" name="date_fin" value="<?= date('Y-m-d', strtotime($reservation['date_fin'])) ?>" required>
+
+                    <button type="submit" name="updateReservation">Modifier</button>
+                </form>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+<?php else: ?>
+    <p>Aucune réservation à venir.</p>
+<?php endif; ?>
+
 
             <h3>Réservations passées :</h3>
             <?php if (!empty($reservations['Passee'])): ?>
