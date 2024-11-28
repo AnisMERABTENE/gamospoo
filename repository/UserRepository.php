@@ -20,19 +20,8 @@ class UserRepository
       return $stmt->fetch(PDO::FETCH_ASSOC);
       
     }
-    /*
-     public function addUserBdd(string $email, $hashedPassword,$role='utilisateur'):array|bool
-  {
-    $query = "INSERT INTO utilisateurs (prenom,email,mot_de_passe,role) VALUES(:prenom,:email,:mot_de_passe,:role)";
-    $stmt = $this->dbh->prepare($query);
-    $stmt->bindValue(':prenom', 'à toi', PDO::PARAM_STR);
-    $stmt->bindParam(':email', $email, PDO::PARAM_STR);
-    $stmt->bindParam(':mot_de_passe', $hashedPassword, PDO::PARAM_STR);
-    $stmt->bindValue(':role', $role, PDO::PARAM_STR);
-
-     return $stmt->execute();   
-  }
-     */
+    
+     
     public function addUserBdd(string $email, ?string $prenom, string $hashedPassword): bool
 {
     // Si le prénom est vide, extraire la partie avant le '@' de l'email
