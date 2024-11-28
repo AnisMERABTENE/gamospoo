@@ -53,7 +53,7 @@
                                 <td>
                                     <form action="" method="POST">
                                         <input type="hidden" name="id_reservation" value="<?= $reservation['id_reservation'] ?>" />
-                                        <button type="submit" name="modifReservation">Modifier la réservation</button>
+                                        <button type="submit" name="updateReservation">Modifier la réservation</button>
                                     </form>
                                 </td>
                             </tr>

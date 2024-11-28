@@ -21,6 +21,8 @@ h2{
     max-width: 600px;
     margin: 0 auto;
     padding: 20px;
+    overflow: scroll;
+    height: 500px;
 }
 
 .table-container {
