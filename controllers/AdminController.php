@@ -13,6 +13,10 @@ class AdminController
     // Méthode pour afficher la page d'administration
     public function home()
     {
+        if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin'){
+            header("Location: /Login");
+            exit();
+         } 
         try {
             // Récupérer les utilisateurs normaux
             $users = $this->adminRepository->getNormalUsers();

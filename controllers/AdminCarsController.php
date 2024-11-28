@@ -11,9 +11,16 @@ class AdminCarsController
     }
 
     public function home()
-    {
+    {        // Vérifier si la session est utlisé par un admin
+       
+ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin'){
+    header("Location: /Login");
+    exit();
+ } 
         $cars = $this->adminCarsRepository->getAllCars();
+
         require __DIR__ . '/../views/admin_cars.php';
+        exit; 
     }
 
     public function page()
