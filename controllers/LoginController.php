@@ -60,6 +60,8 @@ class LoginController{
                   
                   if($user["role"] === "admin"){
                   header("location:/admin");
+                  if($user["role"] === "admin"){
+                  header("location:/admin");
                   exit();
 
 
@@ -105,7 +107,6 @@ class LoginController{
         }
       }
 
-        
     }
-
-  }
+    }
+}
