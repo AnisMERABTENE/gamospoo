@@ -58,25 +58,14 @@ class LoginController{
                   $_SESSION['prenom']=$user['prenom'];   
                   $_SESSION['userId']=$user['id_utilisateur'];   
                   
-                  if($user["role"] === "admin"){
-                  header("location:/admin");
-                  if($user["role"] === "admin"){
-                  header("location:/admin");
-                  exit();
-
-
-                  if ($user['role' ] === 'admin'){
+                   if ($user['role' ] === 'admin'){
                       header("location:/admin");
                       exit();
                   }else{         
                     header("location:/login");
                     exit();
                   }
-
-                } else {
-                  header("location:login");
-                  exit();
-                }
+         
             } else {
               $errors[]=" mot de passe incorrect";
               $_SESSION['error']=$errors;
@@ -108,5 +97,5 @@ class LoginController{
       }
 
     }
-    }
+    
 }
