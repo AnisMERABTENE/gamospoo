@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gamos - Accueil</title>
-    <link rel="stylesheet" href="/css/home.css"> 
+    <link rel="stylesheet" href="/css/home.css">
     <style>
+        /* Welcome screen */
         #welcome-screen {
             position: fixed;
             top: 0;
@@ -26,16 +27,14 @@
             font-family: Arial, sans-serif;
             text-shadow: 0 2px 5px rgba(0, 0, 0, 0.8);
         }
-        /* https://media.giphy.com/media/FQrKPsolkooUTalcMx/giphy.gif  */
-        /* https://media.giphy.com/media/O58wTsoBqBqMw/giphy.gif */
 
+        /* Main content */
         body {
             margin: 0;
             font-family: Arial, sans-serif;
             background: url('') no-repeat center center fixed;
             background-size: cover;
             color: #333;
-            overflow: hidden;
         }
 
         .hidden {
@@ -69,7 +68,18 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             margin-top: 30px;
             text-align: center;
-            backdrop-filter: blur(5px); 
+            backdrop-filter: blur(5px);
+        }
+
+        .error-message {
+            color: #ff0000;
+            background-color: #ffe6e6;
+            border: 1px solid #ff0000;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: bold;
         }
 
         .gamos-form {
@@ -140,17 +150,21 @@
     </style>
 </head>
 <body>
+    <!-- Welcome Screen -->
     <div id="welcome-screen">
-        <h1>Bienvenue sur GAMOS<br></h1>
+        <h1>Bienvenue sur GAMOS</h1>
     </div>
 
+    <!-- Main Content -->
     <div id="main-content" class="hidden">
         <div class="gamos-container">
             <header class="gamos-header">
                 <h1 class="gamos-title">Gamos</h1>
             </header>
             <div class="gamos-form-container">
-                <form action="/Home/handleForm" method="POST" class="gamos-form">
+                <div id="error-container"></div> <!-- Error messages will appear here -->
+
+                <form id="date-form" action="/Home/handleForm" method="POST" class="gamos-form">
                     <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($_SESSION['csrf_token'], ENT_QUOTES, 'UTF-8'); ?>">
 
                     <div class="gamos-field">
@@ -170,11 +184,39 @@
     </div>
 
     <script>
-        // Animation: Hide welcome screen and show main content
+        // Show main content after welcome animation
         setTimeout(() => {
             document.getElementById('welcome-screen').style.display = 'none';
             document.getElementById('main-content').classList.remove('hidden');
-        }, 3000); // 4 seconds
+        }, 3000);
+
+        // Handle form submission
+        document.getElementById('date-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const startDate = document.getElementById('start_date').value;
+            const endDate = document.getElementById('end_date').value;
+            const errorContainer = document.getElementById('error-container');
+
+            // Clear previous errors
+            errorContainer.innerHTML = '';
+
+            const currentDate = new Date().toISOString().split('T')[0];
+
+            // Validation
+            if (startDate < currentDate) {
+                errorContainer.innerHTML = '<div class="error-message">La date de début ne peut pas être dans le passé.</div>';
+                return;
+            }
+
+            if (endDate < startDate) {
+                errorContainer.innerHTML = '<div class="error-message">La date de fin ne peut pas être avant la date de début.</div>';
+                return;
+            }
+
+            // Submit the form if no errors
+            this.submit();
+        });
     </script>
 </body>
 </html>

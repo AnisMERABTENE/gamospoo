@@ -78,7 +78,7 @@ class LoginController{
 
           $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-          if($this->userRepository->addUserBdd($email,$hashedPassword)){
+          if($this->userRepository->addUserBdd($email,$prenom,$hashedPassword)){
             $newUser = $this->userRepository->recupUserBdd($email);
             $_SESSION["email"] =$newUser["email"];
             $_SESSION["role"] = $newUser["role"];  
