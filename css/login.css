@@ -1,0 +1,82 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; 
+    background-color: #f4f4f4; 
+    text-align: center;
+    
+}
+
+
+h1 {
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 2em;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.login-voitures-container {
+    display: flex; 
+    justify-content: center; 
+    gap: 20px; 
+    max-width: 900px; 
+    width: 100%;
+    margin-top: 20px; 
+}
+
+.login-voiture-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    padding: 20px;
+    width: 250px; 
+    height: 350px; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    
+}
+
+.login-voiture-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.login-voiture-image {
+    max-width: 100%;
+    max-height: 50%; 
+    object-fit: cover; 
+    margin-bottom: 20px;
+}
+
+.login-voiture-price {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #4CAF50;
+    margin-bottom: 10px;
+}
+
+.login-voiture-slogan {
+    font-size: 1.1em;
+    color: #777;
+    margin-top: auto; 
+}
+
+.login-voitures-container p {
+    font-size: 1.2em;
+    color: #888;
+}
+

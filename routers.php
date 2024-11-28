@@ -55,10 +55,13 @@ class Router
             $id = $getId;
         }
 
+        $page = !empty($explodeUri[0]) ? strtolower($explodeUri[0]) : 'login';
+
         return [
             'controller' => $controller,
             'action' => $action,
-            'id' => $id
+            'id' => $id,
+            'page' => $page
         ];
     }
 }

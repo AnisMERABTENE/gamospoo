@@ -39,6 +39,7 @@
 
         .hidden {
             display: none;
+           
         }
 
         .gamos-container {
@@ -46,6 +47,7 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
+            margin-top: 150px;
         }
 
         .gamos-header {
