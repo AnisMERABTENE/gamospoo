@@ -4,10 +4,16 @@
 ?>
 
 
-<div class="main-container">
-        <div class="content-container">
-            <h2>Mes Réservations</h2>
-        
+            <div class="main-container">
+                    <div class="content-container">
+                        <h2>Mes Réservations</h2>
+                        <?php if (isset($_SESSION['success'])): ?>
+                <div class="success-message">
+                    <?php echo htmlspecialchars($_SESSION['success']); ?>
+                    <?php unset($_SESSION['success']); // Supprimer le message de session ?>
+                </div>
+                     <?php endif; ?>
+                    
             <h3>Réservations en cours :</h3>
             <?php if (!empty($reservations['En cours'])): ?>
                 <ul>
