@@ -16,13 +16,13 @@ body {
 h1 {
     font-size: 2.5em;
     color: #333;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 h2 {
     font-size: 2em;
     color: #555;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
 }
 
 .login-voitures-container {
@@ -47,6 +47,7 @@ h2 {
     display: flex;
     flex-direction: column;
     justify-content: space-between; 
+    
 }
 
 .login-voiture-card:hover {
