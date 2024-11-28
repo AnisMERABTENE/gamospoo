@@ -7,5 +7,7 @@ require 'repository\AdminRepository.php';
 require 'repository\AdminCarsRepository.php';
 require 'repository\CarsRepository.php';
 require 'repository\VoitureRepository.php';
+require 'repository\ReserveRepository.php';
+
 
 

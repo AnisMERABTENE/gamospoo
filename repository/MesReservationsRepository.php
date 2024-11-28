@@ -35,6 +35,24 @@ public function recupReservationBdd(int $userId):array
           'En cours' =>$reservationEnCours,
           'Passee'=>$reservationPassee
         ];
+    }
+    
+    public function updateReservation($id_reservation, $date_debut, $date_fin) {
+        $query= "UPDATE reservations SET date_debut = :date_debut, date_fin = :date_fin, prix_total = :prix_total WHERE id_reservation = :id_reservation";
+        $stmt = $this->dbh->prepare($query);
+        $stmt->bindParam(':date_debut',$date_debut,PDO::PARAM_STR);
+        $stmt->bindParam(':date_fin',$date_fin,PDO::PARAM_STR);
+        $stmt->bindParam(':id_reservation',$id_reservation,PDO::PARAM_INT);
 
+        $stmt->execute();
+
+       
+        if ($stmt->rowCount() > 0) {
+            return true; 
+        } else {
+           
+            return false;
+        }
+    
     }
 }
